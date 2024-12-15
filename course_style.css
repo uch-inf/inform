@@ -31,13 +31,17 @@ header {
 
 .lesson {
     margin-bottom: 1em;
-    border-left: 1px solid #487de5;
+    border-left: 3px solid #487de5;
+    border-bottom: 1px solid #487de5;
     padding-left: 0.5em;
+    
 }
 
 .lesson_date {
     display: inline-block;
     margin-right: 1em;
+    font-weight: 700;
+    
 }
 
 .lesson_topic {
