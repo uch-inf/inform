@@ -1,178 +1,104 @@
 <!DOCTYPE html>
-<html lang="ru">
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>10 класс. 2024</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <div class="main">
-        <header>
-            <h1>10 класс. 2024</h1>
-            <h2>Расписание занятий</h2>
-        </header>
-
-        <div class="lessons">
-            <h3>Занятия</h3>
-
-            <!-- Уроки -->
-            <div class="lesson">
-                <div class="lesson-header">
-                    <span class="lesson-date">8 ноября 2024 г.</span>
-                    <span class="lesson-topic">Циклы 1</span>
-                    <button class="toggle-button">Подробнее</button>
-                </div>
-                <div class="lesson-details hidden">
-                    <p><strong>Контест:</strong></p>
-                    <a href="https://contest.yandex.ru/contest/70848/enter">Вход</a>
-                    <a href="https://contest.yandex.ru/contest/70848/standings/">Результаты</a>
-                </div>
-            </div>
-
-            <div class="lesson">
-                <div class="lesson-header">
-                    <span class="lesson-date">11 ноября 2024 г.</span>
-                    <span class="lesson-topic">Циклы 2</span>
-                    <button class="toggle-button">Подробнее</button>
-                </div>
-                <div class="lesson-details hidden">
-                    <p><strong>Контест:</strong></p>
-                    <a href="https://contest.yandex.ru/contest/70994/enter">Вход</a>
-                </div>
-            </div>
-
-            <!-- Дополнительные уроки вставляются аналогично -->
-
-        </div>
-    </div>
-
-    <!-- Скрипт теперь внизу страницы -->
-    <script>
-        // Скрипт для сворачивания/разворачивания занятий
-        document.querySelectorAll('.toggle-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const details = button.parentElement.nextElementSibling;
-                details.classList.toggle('hidden');
-                button.textContent = details.classList.contains('hidden') ? 'Подробнее' : 'Скрыть';
-            });
-        });
-    </script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Interpreter</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.1/brython.min.js"></script>
     <style>
-        /* Общие стили */
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: Arial, sans-serif;
+            background: #0d1117; /* Темный фон */
+            color: #c9d1d9; /* Светлый текст */
             margin: 0;
-            padding: 0;
-            background: #0d1117; /* Темный фон в стиле кодирования */
-            color: #c9d1d9; /* Светлый текст, чтобы контрастировать с темным фоном */
-        }
-
-        .main {
-            max-width: 800px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.1); /* Полупрозрачный фон */
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px); /* Эффект размытия фона */
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        header h1 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        header h2 {
-            font-size: 18px;
-            color: #58a6ff; /* Синий цвет для подзаголовка */
-        }
-
-        .lessons h3 {
-            margin-bottom: 20px;
-            font-size: 20px;
-            color: #58a6ff;
-        }
-
-        /* Уроки */
-        .lesson {
-            margin-bottom: 15px;
+        .editor {
+            margin: 20px 0;
+            padding: 10px;
+            background: #161b22; /* Темный блок */
             border: 1px solid #444c56;
             border-radius: 8px;
-            overflow: hidden;
-            background: rgba(50, 50, 50, 0.7); /* Темный фон для блока урока */
+            font-family: monospace;
         }
 
-        .lesson-header {
-            background: #58a6ff;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .lesson-header span {
-            font-weight: 400;
-        }
-
-        .lesson-details {
-            background: rgba(60, 60, 60, 0.9); /* Еще более темный фон для деталей */
-            padding: 15px;
-            display: none;
-        }
-
-        .lesson-details.hidden {
-            display: none;
-        }
-
-        .lesson-details a {
-            display: block;
-            color: #58a6ff;
-            margin-bottom: 5px;
-            text-decoration: none;
-        }
-
-        .lesson-details a:hover {
-            text-decoration: underline;
-        }
-
-        .toggle-button {
-            background: #fff;
+        textarea {
+            width: 100%;
+            height: 200px;
+            background: #161b22;
+            color: #c9d1d9;
             border: none;
-            padding: 5px 10px;
-            font-size: 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            color: #0d1117;
-        }
-
-        .toggle-button:hover {
-            background: #ddd;
-        }
-
-        /* Фон в виде кода */
-        body::after {
-            content: "/* Программирование: жизнь в коде */";
-            position: absolute;
-            top: 20px;
-            right: 10px;
+            resize: none;
+            outline: none;
             font-family: monospace;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.3);
-            z-index: -1;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #58a6ff;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background: #0073e6;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background: #161b22;
+            border: 1px solid #444c56;
+            border-radius: 8px;
+            color: #c9d1d9;
+            font-family: monospace;
+            white-space: pre-wrap; /* Сохраняет переносы строк */
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #8b949e;
         }
     </style>
-</body>
+</head>
+<body onload="brython()">
+    <h1>Интерпретатор Python</h1>
+    <p>Введите Python-код в текстовое поле ниже и нажмите "Запустить".</p>
 
+    <div class="editor">
+        <textarea id="python-code">print("Привет, мир!")</textarea>
+        <button onclick="runPythonCode()">Запустить</button>
+    </div>
+
+    <div class="output" id="output">Вывод программы появится здесь...</div>
+
+    <footer>
+        &copy; 2025 Ваш сайт. Реализовано с помощью Brython.
+    </footer>
+
+    <script>
+        function runPythonCode() {
+            const code = document.getElementById("python-code").value; // Получаем код из текстового поля
+            const outputDiv = document.getElementById("output"); // Блок для вывода результата
+
+            // Очищаем предыдущий вывод
+            outputDiv.textContent = "Выполняется...";
+
+            try {
+                // Выполняем Python-код через Brython
+                const result = __BRYTHON__.run_script(code);
+                outputDiv.textContent = result || "Готово."; // Если результат пустой
+            } catch (error) {
+                outputDiv.textContent = "Ошибка: " + error; // Выводим ошибки
+            }
+        }
+    </script>
+</body>
 </html>
