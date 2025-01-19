@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>10 класс. 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="main">
+        <header>
+            <h1>10 класс. 2024</h1>
+            <h2>Расписание занятий</h2>
+        </header>
+
+        <div class="lessons">
+            <h3>Занятия</h3>
+
+            <!-- Уроки -->
+            <div class="lesson">
+                <div class="lesson-header">
+                    <span class="lesson-date">8 ноября 2024 г.</span>
+                    <span class="lesson-topic">Циклы 1</span>
+                    <button class="toggle-button">Подробнее</button>
+                </div>
+                <div class="lesson-details hidden">
+                    <p><strong>Контест:</strong></p>
+                    <a href="https://contest.yandex.ru/contest/70848/enter">Вход</a>
+                    <a href="https://contest.yandex.ru/contest/70848/standings/">Результаты</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson-header">
+                    <span class="lesson-date">11 ноября 2024 г.</span>
+                    <span class="lesson-topic">Циклы 2</span>
+                    <button class="toggle-button">Подробнее</button>
+                </div>
+                <div class="lesson-details hidden">
+                    <p><strong>Контест:</strong></p>
+                    <a href="https://contest.yandex.ru/contest/70994/enter">Вход</a>
+                </div>
+            </div>
+
+            <!-- Дополнительные уроки вставляются аналогично -->
+
+        </div>
+    </div>
+
+    <script>
+        // Скрипт для сворачивания/разворачивания занятий
+        document.querySelectorAll('.toggle-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const details = button.parentElement.nextElementSibling;
+                details.classList.toggle('hidden');
+                button.textContent = details.classList.contains('hidden') ? 'Подробнее' : 'Скрыть';
+            });
+        });
+    </script>
+
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .main {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        header h2 {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .lessons h3 {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #007BFF;
+        }
+
+        /* Уроки */
+        .lesson {
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .lesson-header {
+            background: #007BFF;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .lesson-header span {
+            font-weight: 400;
+        }
+
+        .lesson-details {
+            background: #f9f9f9;
+            padding: 15px;
+            display: none;
+        }
+
+        .lesson-details.hidden {
+            display: none;
+        }
+
+        .lesson-details a {
+            display: block;
+            color: #007BFF;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+
+        .lesson-details a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-button {
+            background: #fff;
+            border: none;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .toggle-button:hover {
+            background: #ddd;
+        }
+    </style>
+</body>
+
+</html>
