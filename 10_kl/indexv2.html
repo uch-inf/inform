@@ -1,118 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Interpreter with Skulpt</title>
-    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+    <title>10 класс. 2024</title>
+    <!-- Подключение Bootstrap для современного дизайна -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #0d1117; /* Темный фон */
-            color: #c9d1d9; /* Светлый текст */
-            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .lesson {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
             padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .editor {
-            margin: 20px 0;
-            padding: 10px;
-            background: #161b22; /* Темный блок */
-            border: 1px solid #444c56;
-            border-radius: 8px;
-            font-family: monospace;
+        .lesson_date {
+            font-weight: 600;
+            color: #6c757d;
         }
 
-        textarea {
-            width: 100%;
-            height: 200px;
-            background: #161b22;
-            color: #c9d1d9;
-            border: none;
-            resize: none;
-            outline: none;
-            font-family: monospace;
-            font-size: 14px;
+        .lesson_topic {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 10px 0;
         }
 
-        button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background: #58a6ff;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 4px;
+        .contest_link a {
+            display: inline-block;
+            margin: 5px 0;
+            color: #007bff;
+            text-decoration: none;
         }
 
-        button:hover {
-            background: #0073e6;
-        }
-
-        .output {
-            margin-top: 10px;
-            padding: 10px;
-            background: #161b22;
-            border: 1px solid #444c56;
-            border-radius: 8px;
-            color: #c9d1d9;
-            font-family: monospace;
-            white-space: pre-wrap; /* Сохраняет переносы строк */
+        .contest_link a:hover {
+            text-decoration: underline;
         }
 
         footer {
-            margin-top: 20px;
             text-align: center;
-            font-size: 12px;
-            color: #8b949e;
+            padding: 20px 0;
+            background-color: #f1f1f1;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body>
-    <h1>Интерпретатор Python</h1>
-    <p>Введите Python-код в текстовое поле ниже и нажмите "Запустить".</p>
 
-    <div class="editor">
-        <textarea id="python-code">print("Привет, мир!")</textarea>
-        <button onclick="runPythonCode()">Запустить</button>
+<body>
+    <div class="container">
+        <header>
+            <h1>10 класс. 2024</h1>
+        </header>
+
+        <section class="my-4">
+            <h3>Занятия</h3>
+
+            <!-- Уроки -->
+            <div class="lesson">
+                <div class="lesson_date">8 ноября 2024 г.</div>
+                <div class="lesson_topic">Циклы 1</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/70848/enter">Вход</a> |
+                    <a href="https://contest.yandex.ru/contest/70848/standings/">Результаты</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">11 ноября 2024 г.</div>
+                <div class="lesson_topic">Циклы 2</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/70994/enter">Вход</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">18 ноября 2024 г.</div>
+                <div class="lesson_topic">Циклы 3</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/71385/enter">Вход</a> |
+                    <a href="https://contest.yandex.ru/contest/71425/enter">Тренировка по олимпиаде</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">25 ноября 2024 г.</div>
+                <div class="lesson_topic">Циклы 4</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/71780/enter">Вход</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">2 декабря 2024 г.</div>
+                <div class="lesson_topic">Циклы 5</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/72133/enter">Вход</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">9-15 декабря 2024 г.</div>
+                <div class="lesson_topic">Подготовка к контрольной 1</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/72343/enter">Вход</a> |
+                    <a href="tabl_ist.html">Таблицы истинности</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">16-22 декабря 2024 г.</div>
+                <div class="lesson_topic">Подготовка к контрольной 2</div>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/72344/enter">Вход</a> |
+                    <a href="graf.html">Теория графов</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">23-28 декабря 2024 г.</div>
+                <div class="lesson_topic">Контрольная работа (1 полугодие)</div>
+                <p>Время на выполнение: 2 часа.</p>
+                <ul>
+                    <li>0-4 задач - 2</li>
+                    <li>5-6 задач - 3</li>
+                    <li>7-8 задач - 4</li>
+                    <li>9-10 задач - 5</li>
+                </ul>
+                <div class="contest_link">
+                    <a href="https://contest.yandex.ru/contest/72345/enter">Вход</a>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <div class="lesson_date">13-19 января 2025 г.</div>
+                <div class="lesson_topic">Индексы и срезы</div>
+                <div class="contest_link">
+                    <a href="srez.html">Материал</a> |
+                    <a href="https://contest.yandex.ru/contest/73543/enter">Вход</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2024 Все права защищены. Учебный курс 10 класса.
+        </footer>
     </div>
 
-    <div class="output" id="output">Вывод программы появится здесь...</div>
-
-    <footer>
-        &copy; 2025 Ваш сайт. Реализовано с помощью Skulpt.
-    </footer>
-
-    <script>
-        function outf(text) {
-            const outputDiv = document.getElementById("output");
-            outputDiv.textContent += text; // Добавляем текст в блок вывода
-        }
-
-        function runPythonCode() {
-            const code = document.getElementById("python-code").value; // Получаем код из текстового поля
-            const outputDiv = document.getElementById("output"); // Блок для вывода результата
-
-            // Очищаем предыдущий вывод
-            outputDiv.textContent = "";
-
-            Skulpt.configure({
-                output: outf, // Функция для вывода
-                read: (x) => {
-                    if (Skulpt.builtinFiles === undefined || Skulpt.builtinFiles["files"][x] === undefined) {
-                        throw `Файл ${x} не найден`;
-                    }
-                    return Skulpt.builtinFiles["files"][x];
-                }
-            });
-
-            try {
-                Skulpt.exec(code); // Выполняем Python-код
-            } catch (error) {
-                outputDiv.textContent = "Ошибка: " + error; // Выводим ошибки
-            }
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
