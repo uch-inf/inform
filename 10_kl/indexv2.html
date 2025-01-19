@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Interpreter</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/brython@3.11.1/brython.min.js"></script>
+    <title>Python Interpreter with Skulpt</title>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,7 +69,7 @@
         }
     </style>
 </head>
-<body onload="brython()">
+<body>
     <h1>Интерпретатор Python</h1>
     <p>Введите Python-код в текстовое поле ниже и нажмите "Запустить".</p>
 
@@ -80,21 +81,34 @@
     <div class="output" id="output">Вывод программы появится здесь...</div>
 
     <footer>
-        &copy; 2025 Ваш сайт. Реализовано с помощью Brython.
+        &copy; 2025 Ваш сайт. Реализовано с помощью Skulpt.
     </footer>
 
     <script>
+        function outf(text) {
+            const outputDiv = document.getElementById("output");
+            outputDiv.textContent += text; // Добавляем текст в блок вывода
+        }
+
         function runPythonCode() {
             const code = document.getElementById("python-code").value; // Получаем код из текстового поля
             const outputDiv = document.getElementById("output"); // Блок для вывода результата
 
             // Очищаем предыдущий вывод
-            outputDiv.textContent = "Выполняется...";
+            outputDiv.textContent = "";
+
+            Skulpt.configure({
+                output: outf, // Функция для вывода
+                read: (x) => {
+                    if (Skulpt.builtinFiles === undefined || Skulpt.builtinFiles["files"][x] === undefined) {
+                        throw `Файл ${x} не найден`;
+                    }
+                    return Skulpt.builtinFiles["files"][x];
+                }
+            });
 
             try {
-                // Выполняем Python-код через Brython
-                const result = __BRYTHON__.run_script(code);
-                outputDiv.textContent = result || "Готово."; // Если результат пустой
+                Skulpt.exec(code); // Выполняем Python-код
             } catch (error) {
                 outputDiv.textContent = "Ошибка: " + error; // Выводим ошибки
             }
