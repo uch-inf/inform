@@ -1,1 +1,99 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+
+const quizData = [
+  {
+    question: "Что использовать при пищевом отравлении?",
+    options: ["Анальгин", "Йод", "Активированный уголь", "Перекись водорода"],
+    answer: 2,
+  },
+  {
+    question: "Какой препарат применяют при обмороке?",
+    options: ["Аспирин", "Нашатырный спирт", "Зеленка", "Уголь"],
+    answer: 1,
+  },
+  {
+    question: "Чем обработать открытую рану?",
+    options: [
+      "Йод полностью залить рану",
+      "Перекись водорода",
+      "Только зелёнкой",
+      "Аспирином",
+    ],
+    answer: 1,
+  },
+  {
+    question: "При каком состоянии применяют адреналин?",
+    options: ["Головная боль", "Легкий ожог", "Анафилактический шок", "Простуда"],
+    answer: 2,
+  },
+];
+
+export default function FirstAidQuiz() {
+  const [current, setCurrent] = useState(0);
+  const [selected, setSelected] = useState(null);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+
+  const handleAnswer = (index) => {
+    setSelected(index);
+    if (index === quizData[current].answer) setScore(score + 1);
+    setTimeout(() => {
+      if (current < quizData.length - 1) {
+        setCurrent(current + 1);
+        setSelected(null);
+      } else {
+        setFinished(true);
+      }
+    }, 1000);
+  };
+
+  return (
+    <div className="p-4 max-w-xl mx-auto space-y-6">
+      <h1 className="text-2xl font-bold text-center">Подготовка: Медицинские препараты</h1>
+      {!finished ? (
+        <Card>
+          <CardContent className="space-y-4 p-6">
+            <h2 className="text-lg font-semibold">
+              Вопрос {current + 1}: {quizData[current].question}
+            </h2>
+            <div className="grid gap-2">
+              {quizData[current].options.map((opt, idx) => (
+                <Button
+                  key={idx}
+                  onClick={() => handleAnswer(idx)}
+                  className={`w-full justify-start ${
+                    selected !== null &&
+                    (idx === quizData[current].answer
+                      ? "bg-green-500 text-white"
+                      : idx === selected
+                      ? "bg-red-500 text-white"
+                      : "")
+                  }`}
+                  disabled={selected !== null}
+                >
+                  {opt}
+                </Button>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      ) : (
+        <div className="text-center space-y-4">
+          <h2 className="text-xl font-semibold">Тест завершён!</h2>
+          <p className="text-lg">Ваш результат: {score} из {quizData.length}</p>
+          <Button onClick={() => {
+            setCurrent(0);
+            setSelected(null);
+            setScore(0);
+            setFinished(false);
+          }}>
+            Пройти ещё раз
+          </Button>
+        </div>
+      )}
+    </div>
+  );
+}
 
