@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Первая помощь — Подготовка</title>
+    <title>Назначение медицинских препаратов</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -14,22 +14,34 @@
         }
 
         header {
-            background-color: #28a745;
+            background-color: #17a2b8;
             color: white;
             padding: 20px 0;
             text-align: center;
+        }
+
+        section {
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #17a2b8;
         }
 
         footer {
             text-align: center;
             padding: 20px 0;
             background-color: #f1f1f1;
+            margin-top: 40px;
+        }
+
+        .category-title {
+            font-weight: 600;
             margin-top: 20px;
         }
 
-        .accordion-button:not(.collapsed) {
-            color: #28a745;
-            background-color: #e9f7ef;
+        .drug-list li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -37,96 +49,49 @@
 <body>
     <div class="container">
         <header>
-            <h1>Подготовка к станции «Первая помощь»</h1>
-            <p class="lead">Областные соревнования «Безопасное колесо»</p>
+            <h1>Назначение медицинских препаратов</h1>
+            <p class="lead">Станция «Знание основ оказания первой помощи»</p>
         </header>
 
-        <section class="my-4">
-            <h3>Тематические блоки</h3>
-            <div class="accordion" id="firstAidAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="topic1">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
-                            1. Назначение медицинских препаратов
-                        </button>
-                    </h2>
-                    <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="topic1" data-bs-parent="#firstAidAccordion">
-                        <div class="accordion-body">
-                            <ul>
-                                <li><strong>Антисептики</strong> (йод, зелёнка, хлоргексидин)</li>
-                                <li><strong>Обезболивающие</strong> (парацетамол, ибупрофен)</li>
-                                <li><strong>Сердечные препараты</strong> (валидол, нитроглицерин)</li>
-                                <li><strong>Противоаллергические</strong> (супрастин, лоратадин)</li>
-                            </ul>
-                            <a href="#">🎓 Пройти тренировочный тест</a>
-                        </div>
-                    </div>
-                </div>
+        <section>
+            <h2>Общие сведения</h2>
+            <p>Медицинские препараты в аптечке предназначены для оказания первой помощи при различных состояниях: ранениях, болях, укусах, аллергических реакциях и других. Ниже приведены основные группы препаратов и их назначение.</p>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="topic2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
-                            2. Первая помощь при кровотечениях
-                        </button>
-                    </h2>
-                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="topic2" data-bs-parent="#firstAidAccordion">
-                        <div class="accordion-body">
-                            <p>Артериальное, венозное, капиллярное — отличия, приёмы остановки крови.</p>
-                            <a href="#">🩸 Подробнее о методах остановки кровотечений</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-title">1. Антисептические средства</div>
+            <ul class="drug-list">
+                <li><strong>Йод</strong> — для обработки краёв ран, царапин.</li>
+                <li><strong>Зелёнка (бриллиантовый зелёный)</strong> — антисептик при порезах и ссадинах.</li>
+                <li><strong>Хлоргексидин</strong> — мягкое средство для промывания ран.</li>
+            </ul>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="topic3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-                            3. Ожоги и тепловые удары
-                        </button>
-                    </h2>
-                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="topic3" data-bs-parent="#firstAidAccordion">
-                        <div class="accordion-body">
-                            <p>Что делать при термическом, химическом ожоге и при перегреве на солнце.</p>
-                            <a href="#">🔥 Первая помощь при ожогах и ударах</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-title">2. Обезболивающие</div>
+            <ul class="drug-list">
+                <li><strong>Парацетамол</strong> — снижает боль и температуру.</li>
+                <li><strong>Ибупрофен</strong> — снимает воспаление и боль.</li>
+            </ul>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="topic4">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                            4. Переломы и наложение шин
-                        </button>
-                    </h2>
-                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="topic4" data-bs-parent="#firstAidAccordion">
-                        <div class="accordion-body">
-                            <p>Признаки перелома и способы иммобилизации конечности.</p>
-                            <a href="#">🦴 Обучающее видео по наложению шин</a>
-                        </div>
-                    </div>
-                </div>
+            <div class="category-title">3. Сердечно-сосудистые средства</div>
+            <ul class="drug-list">
+                <li><strong>Валидол</strong> — помогает при стрессах, боли в сердце.</li>
+                <li><strong>Нитроглицерин</strong> — при подозрении на сердечный приступ (только по назначению врача).</li>
+            </ul>
 
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="topic5">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
-                            Ещё темы
-                        </button>
-                    </h2>
-                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="topic5" data-bs-parent="#firstAidAccordion">
-                        <div class="accordion-body">
-                            <ul>
-                                <li>Первая помощь при носовом кровотечении</li>
-                                <li>Наложение повязок на суставы</li>
-                                <li>Требования к здоровью водителей</li>
-                                <li>Разновидности бинтов</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="category-title">4. Противоаллергические средства</div>
+            <ul class="drug-list">
+                <li><strong>Супрастин</strong> — при аллергических реакциях (сыпь, зуд, укусы насекомых).</li>
+                <li><strong>Лоратадин</strong> — современное средство против аллергии без выраженной сонливости.</li>
+            </ul>
+
+            <div class="category-title">5. Прочие средства</div>
+            <ul class="drug-list">
+                <li><strong>Активированный уголь</strong> — при отравлениях и расстройствах пищеварения.</li>
+                <li><strong>Перекись водорода</strong> — для промывания ран.</li>
+                <li><strong>Лейкопластырь, бинты, салфетки</strong> — для перевязки и защиты ран.</li>
+            </ul>
         </section>
 
         <footer>
-            &copy; 2024 Безопасное колесо. | <a href="mailto:uch-inf@mail.ru">Связаться с организатором</a>
+            &copy; 2024 Безопасное колесо | <a href="mailto:uch-inf@mail.ru">Контакты</a>
         </footer>
     </div>
 
